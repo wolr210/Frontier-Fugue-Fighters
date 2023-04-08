@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://uvxyqxkkkcku"]
+[gd_scene load_steps=4 format=3 uid="uid://b1dte2yjvb2gn"]
 
 [ext_resource type="Texture2D" uid="uid://dubdapxo74f21" path="res://graphics/characters/redknight.png" id="1_wub5c"]
 [ext_resource type="Texture2D" uid="uid://kg6wiy5obtia" path="res://graphics/characters/redknight_compressed.png" id="2_dgg0o"]

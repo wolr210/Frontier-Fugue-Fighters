@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://fefh12fdljiw"]
+[gd_scene load_steps=16 format=3 uid="uid://fefh12fdljiw"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jgllh"]
 [ext_resource type="Texture2D" uid="uid://p6owly1tqryr" path="res://graphics/characters/full banners/banner red.png" id="1_xwe6l"]
 [ext_resource type="Shader" path="res://graphics/shaders/greyscale_pixelate.gdshader" id="2_wxrpa"]
 [ext_resource type="Shader" path="res://graphics/shaders/pixelate.gdshader" id="2_yf88d"]
 [ext_resource type="Texture2D" uid="uid://b10fhbuqxrdwp" path="res://graphics/characters/full banners/nametag red.png" id="4_4fshj"]
+[ext_resource type="AudioStream" uid="uid://chiq1o6tq3b4j" path="res://sounds/char_select/Char_Select_Backgrounds.mp3" id="6_05xn3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4d1h4"]
 shader = ExtResource("2_wxrpa")
@@ -23,6 +24,42 @@ shader = ExtResource("2_wxrpa")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3mmlt"]
 shader = ExtResource("2_yf88d")
+
+[sub_resource type="Animation" id="Animation_ptnho"]
+resource_name = "Start_Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rwd4q"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rqp6a"]
+_data = {
+"RESET": SubResource("Animation_rwd4q"),
+"Start_Fade": SubResource("Animation_ptnho")
+}
 
 [node name="choose" type="Node2D"]
 script = ExtResource("1_jgllh")
@@ -61,3 +98,21 @@ offset = Vector2(1600, 540)
 material = SubResource("ShaderMaterial_3mmlt")
 position = Vector2(1600, 540)
 texture = ExtResource("4_4fshj")
+
+[node name="Select_Char_Back_Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_05xn3")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.5805, 27.3885)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+autoplay = "Start_Fade"
+libraries = {
+"": SubResource("AnimationLibrary_rqp6a")
+}
