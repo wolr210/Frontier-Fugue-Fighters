@@ -19,3 +19,6 @@ Frontier-Fugue-Fighters/.godot/editor/filesystem_update4
 Frontier-Fugue-Fighters/.godot/editor/filesystem_cache8
 Frontier-Fugue-Fighters/.godot/editor/editor_layout.cfg
 Frontier-Fugue-Fighters/.godot/.gdignore
+*.ctex
+*.md5
+*.import
