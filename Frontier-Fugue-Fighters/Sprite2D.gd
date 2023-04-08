@@ -6,7 +6,7 @@ var player1Input = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	DisplayServer.window_set_size(Vector2(800,800))#(DisplayServer.screen_get_size())
+	DisplayServer.window_set_size(Vector2(1920, 1080))#(DisplayServer.screen_get_size())
 	DisplayServer.window_set_position(Vector2(0,0))
 	Engine.set_max_fps(60)
 	startFrameCount = Engine.get_frames_drawn()

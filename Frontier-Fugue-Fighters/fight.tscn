@@ -1,0 +1,141 @@
+[gd_scene load_steps=25 format=3 uid="uid://buluctqn5ac1u"]
+
+[ext_resource type="Script" path="res://Sprite2D.gd" id="2_gcals"]
+[ext_resource type="Texture2D" uid="uid://d2hf4ik3rieio" path="res://graphics/background/birbs.png" id="2_wgbli"]
+[ext_resource type="Texture2D" uid="uid://d7use8sm4prc" path="res://graphics/background/cactus b.png" id="3_ckl2r"]
+[ext_resource type="Texture2D" uid="uid://cxn6ayjavg750" path="res://graphics/background/cactus f.png" id="4_vf035"]
+[ext_resource type="Texture2D" uid="uid://d3bjxf8t05mey" path="res://graphics/background/cave.png" id="5_j50e6"]
+[ext_resource type="Texture2D" uid="uid://bw0vyewd1rpnw" path="res://graphics/background/clouds.png" id="6_37bpc"]
+[ext_resource type="Texture2D" uid="uid://bj3f8ntqym776" path="res://graphics/background/ground.png" id="7_lnuup"]
+[ext_resource type="Texture2D" uid="uid://cakt6qljshoc0" path="res://graphics/background/hill b.png" id="8_h2wdc"]
+[ext_resource type="Texture2D" uid="uid://dbdky78ag4m7x" path="res://graphics/background/hill f.png" id="9_eg6rn"]
+[ext_resource type="Texture2D" uid="uid://cuoi7cvcq5we2" path="res://graphics/background/sky.png" id="10_bf2lk"]
+[ext_resource type="Texture2D" uid="uid://dolmvdpc1nesc" path="res://graphics/characters/rocky.png" id="11_2ctui"]
+[ext_resource type="Shader" path="res://graphics/shaders/pixelate.gdshader" id="11_112qm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3q3r"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0s40"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m50lm"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0fdp"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_54af7"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4ad6"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o5mge"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pv715"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mri0t"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fl3vd"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1wxo"]
+shader = ExtResource("11_112qm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sghv2"]
+shader = ExtResource("11_112qm")
+
+[node name="Scene" type="Node2D"]
+material = SubResource("ShaderMaterial_x3q3r")
+position = Vector2(1521, 777)
+
+[node name="Background" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_v0s40")
+use_parent_material = true
+
+[node name="birbs" type="CanvasLayer" parent="Background"]
+layer = 8
+
+[node name="birbs" type="Sprite2D" parent="Background/birbs"]
+material = SubResource("ShaderMaterial_m50lm")
+position = Vector2(962, 540)
+texture = ExtResource("2_wgbli")
+
+[node name="cactus b" type="CanvasLayer" parent="Background"]
+layer = 2
+
+[node name="cactus b" type="Sprite2D" parent="Background/cactus b"]
+material = SubResource("ShaderMaterial_p0fdp")
+position = Vector2(962, 540)
+texture = ExtResource("3_ckl2r")
+
+[node name="cactus f" type="CanvasLayer" parent="Background"]
+layer = 3
+
+[node name="cactus f" type="Sprite2D" parent="Background/cactus f"]
+material = SubResource("ShaderMaterial_54af7")
+position = Vector2(962, 540)
+texture = ExtResource("4_vf035")
+
+[node name="cave" type="CanvasLayer" parent="Background"]
+layer = 5
+
+[node name="cave" type="Sprite2D" parent="Background/cave"]
+material = SubResource("ShaderMaterial_q4ad6")
+position = Vector2(962, 540)
+texture = ExtResource("5_j50e6")
+
+[node name="clouds" type="CanvasLayer" parent="Background"]
+layer = 7
+
+[node name="clouds" type="Sprite2D" parent="Background/clouds"]
+material = SubResource("ShaderMaterial_o5mge")
+position = Vector2(962, 540)
+texture = ExtResource("6_37bpc")
+
+[node name="ground" type="CanvasLayer" parent="Background"]
+layer = 6
+
+[node name="ground" type="Sprite2D" parent="Background/ground"]
+material = SubResource("ShaderMaterial_pv715")
+position = Vector2(962, 540)
+texture = ExtResource("7_lnuup")
+
+[node name="hill b" type="CanvasLayer" parent="Background"]
+
+[node name="hill b" type="Sprite2D" parent="Background/hill b"]
+material = SubResource("ShaderMaterial_mri0t")
+position = Vector2(962, 540)
+texture = ExtResource("8_h2wdc")
+
+[node name="hill f" type="CanvasLayer" parent="Background"]
+layer = 4
+
+[node name="hill f" type="Sprite2D" parent="Background/hill f"]
+material = SubResource("ShaderMaterial_fl3vd")
+position = Vector2(962, 540)
+texture = ExtResource("9_eg6rn")
+
+[node name="sky" type="CanvasLayer" parent="Background"]
+layer = 0
+
+[node name="sky" type="Sprite2D" parent="Background/sky"]
+material = SubResource("ShaderMaterial_m1wxo")
+position = Vector2(962, 540)
+texture = ExtResource("10_bf2lk")
+
+[node name="Player1" type="Node2D" parent="."]
+
+[node name="Player1CanvasLayer" type="CanvasLayer" parent="Player1"]
+layer = 10
+
+[node name="Player1Sprite" type="Sprite2D" parent="Player1/Player1CanvasLayer"]
+material = SubResource("ShaderMaterial_sghv2")
+position = Vector2(915, 489)
+scale = Vector2(0.867434, 0.867434)
+texture = ExtResource("11_2ctui")
+script = ExtResource("2_gcals")
