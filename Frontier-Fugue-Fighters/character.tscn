@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://uvxyqxkkkcku"]
+
+[ext_resource type="Texture2D" uid="uid://dubdapxo74f21" path="res://graphics/characters/redknight.png" id="1_wub5c"]
+[ext_resource type="Texture2D" uid="uid://kg6wiy5obtia" path="res://graphics/characters/redknight_compressed.png" id="2_dgg0o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n0k6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wub5c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dgg0o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Character" type="Area2D"]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n0k6l")
+animation = &"idle"
+frame = 1
+frame_progress = 0.0480678
