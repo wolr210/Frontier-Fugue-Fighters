@@ -6,9 +6,6 @@ var player1Input = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	DisplayServer.window_set_size(Vector2(1920, 1080))#(DisplayServer.screen_get_size())
-	DisplayServer.window_set_position(Vector2(0,0))
-	Engine.set_max_fps(60)
 	startFrameCount = Engine.get_frames_drawn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,3 +38,5 @@ func _input(_ev):
 		player1Input = true
 	elif Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().quit()
+	elif Input.is_key_pressed(KEY_0):
+		get_tree().change_scene_to_file("res://choose.tscn")

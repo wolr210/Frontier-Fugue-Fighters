@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://fefh12fdljiw"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_jgllh"]
+[ext_resource type="Texture2D" uid="uid://y3dc1gsqvhmy" path="res://graphics/characters/full banners/banner red.png" id="1_xwe6l"]
+[ext_resource type="Shader" path="res://graphics/shaders/pixelate.gdshader" id="2_yf88d"]
+[ext_resource type="Texture2D" uid="uid://b8i0f0ewmlhg8" path="res://graphics/characters/full banners/nametag red.png" id="4_4fshj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4d1h4"]
+shader = ExtResource("2_yf88d")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e868k"]
+shader = ExtResource("2_yf88d")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jk77h"]
+shader = ExtResource("2_yf88d")
+
+[node name="choose" type="Node2D"]
+script = ExtResource("1_jgllh")
+
+[node name="choose_red" type="CanvasLayer" parent="."]
+
+[node name="choose_red" type="Sprite2D" parent="choose_red"]
+material = SubResource("ShaderMaterial_4d1h4")
+position = Vector2(320, 540)
+texture = ExtResource("1_xwe6l")
+
+[node name="red_banner" type="Sprite2D" parent="choose_red/choose_red"]
+texture = ExtResource("4_4fshj")
+
+[node name="choose_green" type="CanvasLayer" parent="."]
+
+[node name="choose_green" type="Sprite2D" parent="choose_green"]
+material = SubResource("ShaderMaterial_e868k")
+texture = ExtResource("1_xwe6l")
+offset = Vector2(960, 540)
+
+[node name="green_banner" type="Sprite2D" parent="choose_green/choose_green"]
+position = Vector2(960, 540)
+texture = ExtResource("4_4fshj")
+
+[node name="choose_blue" type="CanvasLayer" parent="."]
+
+[node name="choose_blue" type="Sprite2D" parent="choose_blue"]
+material = SubResource("ShaderMaterial_jk77h")
+texture = ExtResource("1_xwe6l")
+offset = Vector2(1600, 540)
+
+[node name="blue_banner" type="Sprite2D" parent="choose_blue/choose_blue"]
+position = Vector2(1600, 540)
+texture = ExtResource("4_4fshj")
