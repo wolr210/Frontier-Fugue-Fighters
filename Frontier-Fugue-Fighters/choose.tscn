@@ -1,17 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://fefh12fdljiw"]
+[gd_scene load_steps=12 format=3 uid="uid://fefh12fdljiw"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jgllh"]
-[ext_resource type="Texture2D" uid="uid://y3dc1gsqvhmy" path="res://graphics/characters/full banners/banner red.png" id="1_xwe6l"]
+[ext_resource type="Texture2D" uid="uid://p6owly1tqryr" path="res://graphics/characters/full banners/banner red.png" id="1_xwe6l"]
+[ext_resource type="Shader" path="res://graphics/shaders/greyscale_pixelate.gdshader" id="2_wxrpa"]
 [ext_resource type="Shader" path="res://graphics/shaders/pixelate.gdshader" id="2_yf88d"]
-[ext_resource type="Texture2D" uid="uid://b8i0f0ewmlhg8" path="res://graphics/characters/full banners/nametag red.png" id="4_4fshj"]
+[ext_resource type="Texture2D" uid="uid://b10fhbuqxrdwp" path="res://graphics/characters/full banners/nametag red.png" id="4_4fshj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4d1h4"]
+shader = ExtResource("2_wxrpa")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rf1l"]
 shader = ExtResource("2_yf88d")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e868k"]
+shader = ExtResource("2_wxrpa")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2s5g"]
 shader = ExtResource("2_yf88d")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jk77h"]
+shader = ExtResource("2_wxrpa")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mmlt"]
 shader = ExtResource("2_yf88d")
 
 [node name="choose" type="Node2D"]
@@ -25,6 +35,7 @@ position = Vector2(320, 540)
 texture = ExtResource("1_xwe6l")
 
 [node name="red_banner" type="Sprite2D" parent="choose_red/choose_red"]
+material = SubResource("ShaderMaterial_1rf1l")
 texture = ExtResource("4_4fshj")
 
 [node name="choose_green" type="CanvasLayer" parent="."]
@@ -35,6 +46,7 @@ texture = ExtResource("1_xwe6l")
 offset = Vector2(960, 540)
 
 [node name="green_banner" type="Sprite2D" parent="choose_green/choose_green"]
+material = SubResource("ShaderMaterial_n2s5g")
 position = Vector2(960, 540)
 texture = ExtResource("4_4fshj")
 
@@ -46,5 +58,6 @@ texture = ExtResource("1_xwe6l")
 offset = Vector2(1600, 540)
 
 [node name="blue_banner" type="Sprite2D" parent="choose_blue/choose_blue"]
+material = SubResource("ShaderMaterial_3mmlt")
 position = Vector2(1600, 540)
 texture = ExtResource("4_4fshj")
