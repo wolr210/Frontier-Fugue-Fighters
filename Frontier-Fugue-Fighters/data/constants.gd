@@ -1,8 +1,12 @@
 extends Node
 
-# BPM and other related variables
-const BPM = 120
-const FRAMES_PER_BEAT = 3600 / BPM
+# BPM and other related variables/functions
+var BPM = 120
+var FRAMES_PER_BEAT = 3600 / BPM
+
+func UPDATE_BPM(new_bpm):
+	BPM = new_bpm
+	FRAMES_PER_BEAT = 3600 / BPM
 
 # TIMING and other related variables
 const TIMING_EARLY_PERFECT = 3 # number of frames that you can input an early perfect
