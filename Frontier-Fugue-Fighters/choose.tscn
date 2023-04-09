@@ -1,20 +1,20 @@
-[gd_scene load_steps=32 format=3 uid="uid://fefh12fdljiw"]
+[gd_scene load_steps=32 format=3 uid="uid://bdcyd1roh6aa0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jgllh"]
 [ext_resource type="Texture2D" uid="uid://p6owly1tqryr" path="res://graphics/characters/full banners/banner red.png" id="1_xwe6l"]
 [ext_resource type="Shader" path="res://graphics/shaders/greyscale_pixelate.gdshader" id="2_wxrpa"]
 [ext_resource type="Texture2D" uid="uid://b10fhbuqxrdwp" path="res://graphics/characters/full banners/nametag red.png" id="4_4fshj"]
-[ext_resource type="Texture2D" uid="uid://b1nuu5l3nmmax" path="res://graphics/characters/full banners/nametag green.png" id="6_5aw7i"]
+[ext_resource type="Texture2D" uid="uid://dw5vhf8fa4fnk" path="res://graphics/characters/full banners/nametag green.png" id="6_5aw7i"]
 [ext_resource type="AudioStream" uid="uid://chiq1o6tq3b4j" path="res://sounds/char_select/Char_Select_Backgrounds.mp3" id="6_05xn3"]
-[ext_resource type="Texture2D" uid="uid://b1ajm18pl5ms" path="res://graphics/characters/full banners/banner green.png" id="6_me8i8"]
-[ext_resource type="AudioStream" uid="uid://ccq4rtwdiq3bp" path="res://sounds/char_select/Char_select.wav" id="7_ggv8l"]
-[ext_resource type="Texture2D" uid="uid://hwkihi4ay0lu" path="res://graphics/characters/full banners/banner blue.png" id="7_jl4oy"]
-[ext_resource type="Texture2D" uid="uid://cyxjd2f2frdbs" path="res://graphics/characters/full banners/nametag blue.png" id="8_qiw6b"]
-[ext_resource type="Texture2D" uid="uid://dal7y4b7vawul" path="res://graphics/characters/choose a character.png" id="11_82aqk"]
+[ext_resource type="Texture2D" uid="uid://ny8xwgyejyp1" path="res://graphics/characters/full banners/banner green.png" id="6_me8i8"]
+[ext_resource type="AudioStream" uid="uid://be8g0e27hxrah" path="res://sounds/char_select/Char_select.wav" id="7_ggv8l"]
+[ext_resource type="Texture2D" uid="uid://b1lqwa1g1sw2t" path="res://graphics/characters/full banners/banner blue.png" id="7_jl4oy"]
+[ext_resource type="Texture2D" uid="uid://x84cu0jdme7q" path="res://graphics/characters/full banners/nametag blue.png" id="8_qiw6b"]
+[ext_resource type="Texture2D" uid="uid://g1xmi1f4e4uu" path="res://graphics/characters/choose a character.png" id="11_82aqk"]
 [ext_resource type="Shader" path="res://graphics/shaders/pixelate_text.gdshader" id="11_fduq5"]
-[ext_resource type="Texture2D" uid="uid://c7gpilu0cc4rx" path="res://graphics/characters/press enter to start.png" id="12_l67pc"]
-[ext_resource type="Texture2D" uid="uid://bcag4lhtq6lwa" path="res://graphics/characters/p1.png" id="13_ule7t"]
-[ext_resource type="Texture2D" uid="uid://ct211btush5qh" path="res://graphics/characters/p2.png" id="14_gjbrn"]
+[ext_resource type="Texture2D" uid="uid://43fcuar7jyep" path="res://graphics/characters/press enter to start.png" id="12_l67pc"]
+[ext_resource type="Texture2D" uid="uid://b2t7x2c6v6dwa" path="res://graphics/characters/p1.png" id="13_ule7t"]
+[ext_resource type="Texture2D" uid="uid://dego3peo34p06" path="res://graphics/characters/p2.png" id="14_gjbrn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4d1h4"]
 shader = ExtResource("2_wxrpa")
@@ -79,7 +79,7 @@ tracks/0/path = NodePath("BlackFade:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
@@ -158,7 +158,6 @@ texture = ExtResource("8_qiw6b")
 
 [node name="Select_Char_Back_Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_05xn3")
-autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
