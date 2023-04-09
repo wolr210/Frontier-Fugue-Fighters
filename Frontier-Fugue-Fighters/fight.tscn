@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://su2gffi5ts24"]
+[gd_scene load_steps=59 format=3 uid="uid://dssoqagmxsbsf"]
 
 [ext_resource type="Texture2D" uid="uid://d2hf4ik3rieio" path="res://graphics/background/birbs.png" id="2_wgbli"]
+[ext_resource type="Script" path="res://scripts/fight_script.gd" id="2_wpyqm"]
 [ext_resource type="Texture2D" uid="uid://d7use8sm4prc" path="res://graphics/background/cactus b.png" id="3_ckl2r"]
 [ext_resource type="Texture2D" uid="uid://cxn6ayjavg750" path="res://graphics/background/cactus f.png" id="4_vf035"]
 [ext_resource type="Texture2D" uid="uid://d3bjxf8t05mey" path="res://graphics/background/cave.png" id="5_j50e6"]
@@ -9,19 +10,32 @@
 [ext_resource type="Texture2D" uid="uid://cakt6qljshoc0" path="res://graphics/background/hill b.png" id="8_h2wdc"]
 [ext_resource type="Texture2D" uid="uid://dbdky78ag4m7x" path="res://graphics/background/hill f.png" id="9_eg6rn"]
 [ext_resource type="Texture2D" uid="uid://cuoi7cvcq5we2" path="res://graphics/background/sky.png" id="10_bf2lk"]
-[ext_resource type="Texture2D" uid="uid://dolmvdpc1nesc" path="res://graphics/characters/rocky.png" id="11_2ctui"]
 [ext_resource type="Shader" path="res://graphics/shaders/pixelate.gdshader" id="11_112qm"]
-[ext_resource type="Script" path="res://scripts/Sprite2D.gd" id="12_b1nkc"]
+[ext_resource type="Texture2D" uid="uid://h4vwh6dddwdm" path="res://graphics/characters/fight sprites/blue idle 1.png" id="12_uyjj5"]
+[ext_resource type="Shader" path="res://graphics/shaders/pixelate_less.gdshader" id="12_xcncy"]
 [ext_resource type="AudioStream" uid="uid://db7mdwqid123" path="res://sounds/miss/Vin_Scratch1.wav" id="13_2661a"]
+[ext_resource type="Texture2D" uid="uid://cdd7um0tgeggq" path="res://graphics/characters/fight sprites/blue idle 2.png" id="13_jjer6"]
 [ext_resource type="AudioStream" uid="uid://cswu0sdiky3gw" path="res://sounds/miss/Vin_Scratch3.wav" id="13_x745m"]
-[ext_resource type="AudioStream" uid="uid://dkmuhhy3gacda" path="res://sounds/metronome/Cowbell-1.wav" id="14_i0f8a"]
+[ext_resource type="Texture2D" uid="uid://dsihyw5gdfkr" path="res://graphics/characters/fight effects/attack 1.png" id="13_y6yhi"]
+[ext_resource type="Texture2D" uid="uid://ci8nwrx560b3j" path="res://graphics/characters/fight sprites/green idle 1.png" id="14_57wla"]
+[ext_resource type="AudioStream" uid="uid://dtm5r6kkerbd6" path="res://sounds/metronome/Cowbell-1.wav" id="14_i0f8a"]
+[ext_resource type="Texture2D" uid="uid://fdisjy8e0bqp" path="res://graphics/characters/fight effects/attack 2.png" id="14_o2i4l"]
+[ext_resource type="Texture2D" uid="uid://ctw4arit672iy" path="res://graphics/characters/fight sprites/green idle 2.png" id="15_0tfpf"]
+[ext_resource type="Texture2D" uid="uid://b3ds2eykc5chv" path="res://graphics/characters/fight effects/defense 1.png" id="15_ow40u"]
 [ext_resource type="AudioStream" uid="uid://cvgvo1b8grqnt" path="res://sounds/miss/Vin_Scratch2.wav" id="15_si364"]
-[ext_resource type="Shader" path="res://graphics/shaders/pixelate_text.gdshader" id="17_h67fv"]
-[ext_resource type="Texture2D" uid="uid://b3w6isros5uqh" path="res://graphics/text/ready.png" id="18_4w2uv"]
-[ext_resource type="Texture2D" uid="uid://dq6epn8ev843j" path="res://graphics/text/3.png" id="19_yw85f"]
-[ext_resource type="Texture2D" uid="uid://ccx4bpwjkl1si" path="res://graphics/text/2.png" id="20_1d0sl"]
-[ext_resource type="Texture2D" uid="uid://b1tyds6dcjtsb" path="res://graphics/text/1.png" id="21_2w6to"]
-[ext_resource type="Texture2D" uid="uid://c4a0mw7wvccs1" path="res://graphics/text/go.png" id="22_44dds"]
+[ext_resource type="Texture2D" uid="uid://wobmtsktgxvx" path="res://graphics/characters/fight sprites/red idle 1.png" id="16_5t4li"]
+[ext_resource type="Texture2D" uid="uid://drykr032l82ow" path="res://graphics/characters/fight effects/defense 2.png" id="16_c2q58"]
+[ext_resource type="Texture2D" uid="uid://bfx6uhss23iy7" path="res://graphics/characters/fight sprites/red idle 2.png" id="17_dng7b"]
+[ext_resource type="Texture2D" uid="uid://0jib1u1lqrpo" path="res://graphics/text/ready.png" id="18_4w2uv"]
+[ext_resource type="Texture2D" uid="uid://1wplvi2ldykn" path="res://graphics/characters/fight effects/grab 1.png" id="19_otg25"]
+[ext_resource type="Texture2D" uid="uid://dow0qet5qcj0d" path="res://graphics/text/3.png" id="19_yw85f"]
+[ext_resource type="Texture2D" uid="uid://crxjpr8cjurp7" path="res://graphics/text/2.png" id="20_1d0sl"]
+[ext_resource type="Texture2D" uid="uid://caflawpgaj6l0" path="res://graphics/characters/fight effects/grab 2.png" id="20_vsm8f"]
+[ext_resource type="Texture2D" uid="uid://ckn1bgcoyc0ia" path="res://graphics/text/1.png" id="21_2w6to"]
+[ext_resource type="Texture2D" uid="uid://oyeksbxuvxl1" path="res://graphics/text/go.png" id="22_44dds"]
+[ext_resource type="Texture2D" uid="uid://dqyukjefbgntm" path="res://graphics/characters/fight sprites/red attack.png" id="25_k2ate"]
+[ext_resource type="Texture2D" uid="uid://cb66o3dthfkbn" path="res://graphics/characters/fight sprites/red defense.png" id="26_wu65h"]
+[ext_resource type="Texture2D" uid="uid://b41ybfhp6j7p0" path="res://graphics/characters/fight sprites/red grab.png" id="27_kxghy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x3q3r"]
 shader = ExtResource("11_112qm")
@@ -56,8 +70,80 @@ shader = ExtResource("11_112qm")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m1wxo"]
 shader = ExtResource("11_112qm")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sghv2"]
-shader = ExtResource("11_112qm")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2643o"]
+shader = ExtResource("12_xcncy")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_05mcn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_y6yhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_o2i4l")
+}],
+"loop": true,
+"name": &"PlayerAttack",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ow40u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_c2q58")
+}],
+"loop": true,
+"name": &"PlayerBlock",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_uyjj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jjer6")
+}],
+"loop": true,
+"name": &"PlayerBlue",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_otg25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_vsm8f")
+}],
+"loop": true,
+"name": &"PlayerGrab",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_57wla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0tfpf")
+}],
+"loop": true,
+"name": &"PlayerGreen",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_5t4li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dng7b")
+}],
+"loop": true,
+"name": &"PlayerRed",
+"speed": 4.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ikdsn"]
+shader = ExtResource("12_xcncy")
 
 [sub_resource type="Animation" id="Animation_6gnw3"]
 resource_name = "Black_Out"
@@ -96,23 +182,24 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ts2dq"]
-shader = ExtResource("17_h67fv")
+shader = ExtResource("12_xcncy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4m6i7"]
-shader = ExtResource("17_h67fv")
+shader = ExtResource("12_xcncy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3n034"]
-shader = ExtResource("17_h67fv")
+shader = ExtResource("12_xcncy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pfa0w"]
-shader = ExtResource("17_h67fv")
+shader = ExtResource("12_xcncy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p6x4t"]
-shader = ExtResource("17_h67fv")
+shader = ExtResource("12_xcncy")
 
 [node name="Scene" type="Node2D"]
 material = SubResource("ShaderMaterial_x3q3r")
 position = Vector2(1521, 777)
+script = ExtResource("2_wpyqm")
 
 [node name="Background" type="Node2D" parent="."]
 material = SubResource("ShaderMaterial_v0s40")
@@ -191,32 +278,123 @@ texture = ExtResource("10_bf2lk")
 
 [node name="Player1" type="Node2D" parent="."]
 
-[node name="Player1CanvasLayer" type="CanvasLayer" parent="Player1"]
+[node name="Player1Model" type="CanvasLayer" parent="Player1"]
 layer = 10
 
-[node name="Player1Sprite" type="Sprite2D" parent="Player1/Player1CanvasLayer"]
-material = SubResource("ShaderMaterial_sghv2")
-position = Vector2(915, 489)
-scale = Vector2(0.867434, 0.867434)
-texture = ExtResource("11_2ctui")
-script = ExtResource("12_b1nkc")
+[node name="Player1Idle" type="AnimatedSprite2D" parent="Player1/Player1Model"]
+visible = false
+material = SubResource("ShaderMaterial_2643o")
+position = Vector2(400, 830)
+sprite_frames = SubResource("SpriteFrames_05mcn")
+animation = &"PlayerAttack"
 
-[node name="miss_sound1" type="AudioStreamPlayer" parent="Player1/Player1CanvasLayer/Player1Sprite"]
-stream = ExtResource("13_2661a")
+[node name="Player1Attack" type="Sprite2D" parent="Player1/Player1Model"]
+visible = false
+material = SubResource("ShaderMaterial_ikdsn")
+position = Vector2(400, 830)
+texture = ExtResource("25_k2ate")
 
-[node name="metronome" type="AudioStreamPlayer" parent="Player1/Player1CanvasLayer/Player1Sprite"]
-stream = ExtResource("14_i0f8a")
+[node name="Player1Block" type="Sprite2D" parent="Player1/Player1Model"]
+visible = false
+material = SubResource("ShaderMaterial_ikdsn")
+position = Vector2(400, 830)
+texture = ExtResource("26_wu65h")
 
-[node name="miss_sound2" type="AudioStreamPlayer" parent="Player1/Player1CanvasLayer/Player1Sprite"]
-stream = ExtResource("15_si364")
+[node name="Player1Grab" type="Sprite2D" parent="Player1/Player1Model"]
+visible = false
+material = SubResource("ShaderMaterial_ikdsn")
+position = Vector2(400, 830)
+texture = ExtResource("27_kxghy")
 
-[node name="miss_sound3" type="AudioStreamPlayer" parent="Player1/Player1CanvasLayer/Player1Sprite"]
-stream = ExtResource("13_x745m")
+[node name="Player1Effects" type="CanvasLayer" parent="Player1"]
+layer = 15
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player1/Player1CanvasLayer/Player1Sprite"]
+[node name="Player1Attack" type="AnimatedSprite2D" parent="Player1/Player1Effects"]
+visible = false
+material = SubResource("ShaderMaterial_2643o")
+position = Vector2(800, 830)
+sprite_frames = SubResource("SpriteFrames_05mcn")
+animation = &"PlayerAttack"
+
+[node name="Player1Block" type="AnimatedSprite2D" parent="Player1/Player1Effects"]
+visible = false
+material = SubResource("ShaderMaterial_2643o")
+position = Vector2(750, 830)
+sprite_frames = SubResource("SpriteFrames_05mcn")
+animation = &"PlayerBlock"
+
+[node name="Player1Grab" type="AnimatedSprite2D" parent="Player1/Player1Effects"]
+visible = false
+material = SubResource("ShaderMaterial_2643o")
+position = Vector2(800, 830)
+sprite_frames = SubResource("SpriteFrames_05mcn")
+animation = &"PlayerGrab"
+
+[node name="Player2" type="Node2D" parent="."]
+
+[node name="Player2Model" type="CanvasLayer" parent="Player2"]
 layer = 10
 
-[node name="BlackFade" type="ColorRect" parent="Player1/Player1CanvasLayer/Player1Sprite/CanvasLayer"]
+[node name="Player2Idle" type="AnimatedSprite2D" parent="Player2/Player2Model"]
+visible = false
+material = SubResource("ShaderMaterial_2643o")
+position = Vector2(1520, 830)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_05mcn")
+animation = &"PlayerRed"
+
+[node name="Player2Attack" type="Sprite2D" parent="Player2/Player2Model"]
+visible = false
+material = SubResource("ShaderMaterial_ikdsn")
+position = Vector2(1520, 830)
+scale = Vector2(-1, 1)
+texture = ExtResource("25_k2ate")
+
+[node name="Player2Block" type="Sprite2D" parent="Player2/Player2Model"]
+visible = false
+material = SubResource("ShaderMaterial_ikdsn")
+position = Vector2(1520, 830)
+scale = Vector2(-1, 1)
+texture = ExtResource("26_wu65h")
+
+[node name="Player2Grab" type="Sprite2D" parent="Player2/Player2Model"]
+visible = false
+material = SubResource("ShaderMaterial_ikdsn")
+position = Vector2(1520, 830)
+scale = Vector2(-1, 1)
+texture = ExtResource("27_kxghy")
+
+[node name="Player2Effects" type="CanvasLayer" parent="Player2"]
+layer = 15
+
+[node name="Player2Attack" type="AnimatedSprite2D" parent="Player2/Player2Effects"]
+visible = false
+material = SubResource("ShaderMaterial_2643o")
+position = Vector2(1120, 830)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_05mcn")
+animation = &"PlayerAttack"
+
+[node name="Player2Block" type="AnimatedSprite2D" parent="Player2/Player2Effects"]
+visible = false
+material = SubResource("ShaderMaterial_2643o")
+position = Vector2(1170, 830)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_05mcn")
+animation = &"PlayerBlock"
+
+[node name="Player2Grab" type="AnimatedSprite2D" parent="Player2/Player2Effects"]
+visible = false
+material = SubResource("ShaderMaterial_2643o")
+position = Vector2(1120, 830)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_05mcn")
+animation = &"PlayerGrab"
+
+[node name="FadeTransition" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="BlackFade" type="ColorRect" parent="FadeTransition"]
 visible = false
 self_modulate = Color(0, 0, 0, 1)
 offset_right = 40.0
@@ -224,36 +402,50 @@ offset_bottom = 40.0
 scale = Vector2(48.12, 27.52)
 color = Color(0, 0, 0, 1)
 
-[node name="BlackAnimation" type="AnimationPlayer" parent="Player1/Player1CanvasLayer/Player1Sprite/CanvasLayer"]
+[node name="BlackAnimation" type="AnimationPlayer" parent="FadeTransition"]
 libraries = {
 "": SubResource("AnimationLibrary_kltmk")
 }
 
-[node name="Countdown" type="CanvasLayer" parent="Player1/Player1CanvasLayer/Player1Sprite"]
-layer = 9
+[node name="Countdown" type="CanvasLayer" parent="."]
+layer = 15
 
-[node name="Ready" type="Sprite2D" parent="Player1/Player1CanvasLayer/Player1Sprite/Countdown"]
+[node name="Ready" type="Sprite2D" parent="Countdown"]
 material = SubResource("ShaderMaterial_ts2dq")
 position = Vector2(960, 200)
 scale = Vector2(0.734896, 0.786111)
 texture = ExtResource("18_4w2uv")
 
-[node name="three" type="Sprite2D" parent="Player1/Player1CanvasLayer/Player1Sprite/Countdown"]
+[node name="three" type="Sprite2D" parent="Countdown"]
 material = SubResource("ShaderMaterial_4m6i7")
 position = Vector2(960, 200)
 texture = ExtResource("19_yw85f")
 
-[node name="two" type="Sprite2D" parent="Player1/Player1CanvasLayer/Player1Sprite/Countdown"]
+[node name="two" type="Sprite2D" parent="Countdown"]
 material = SubResource("ShaderMaterial_3n034")
 position = Vector2(960, 200)
 texture = ExtResource("20_1d0sl")
 
-[node name="one" type="Sprite2D" parent="Player1/Player1CanvasLayer/Player1Sprite/Countdown"]
+[node name="one" type="Sprite2D" parent="Countdown"]
 material = SubResource("ShaderMaterial_pfa0w")
 position = Vector2(960, 200)
 texture = ExtResource("21_2w6to")
 
-[node name="go" type="Sprite2D" parent="Player1/Player1CanvasLayer/Player1Sprite/Countdown"]
+[node name="go" type="Sprite2D" parent="Countdown"]
 material = SubResource("ShaderMaterial_p6x4t")
 position = Vector2(960, 200)
 texture = ExtResource("22_44dds")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="miss_sound1" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("13_2661a")
+
+[node name="metronome" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("14_i0f8a")
+
+[node name="miss_sound2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("15_si364")
+
+[node name="miss_sound3" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("13_x745m")
