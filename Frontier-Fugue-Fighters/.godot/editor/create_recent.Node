@@ -1,8 +1,8 @@
+AudioStreamPlayer
 AnimationPlayer
 CanvasLayer
 ColorRect
 Sprite2D
-AudioStreamPlayer
 Polygon2D
 Area2D
 AnimatedSprite2D

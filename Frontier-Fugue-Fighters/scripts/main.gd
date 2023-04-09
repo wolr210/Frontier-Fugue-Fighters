@@ -12,10 +12,11 @@ var red_character_max_x = 1920 / 3;
 var green_character_max_x = 2 * 1920 / 3;
 var blue_character_max_x = 1920;
 
+# ALL audios for the start
 var transition_sound = null
-var black_fade = null
-
+var char_ready = null
 var Background_Audio;
+var black_fade = null
 
 func _ready():
 	DisplayServer.window_set_size(Vector2(1920, 1080))
@@ -32,6 +33,7 @@ func _ready():
 	get_node("selection_tokens/p2_token").visible = false
 
 	black_fade = get_node("CanvasLayer/BlackAnimation")
+	char_ready = get_node("Char_Fully_Selected")
 	Background_Audio = get_node("Select_Char_Back_Audio")
 	Background_Audio.play()
 	
@@ -65,6 +67,7 @@ func _input(ev):
 		print("trying to change")
 		#print(GlobalVars.PLAYER_1_CHARACTER_CHOSEN and GlobalVars.PLAYER_2_CHARACTER_CHOSEN)
 		black_fade.play('Black_In')
+		char_ready.play()
 		
 		for i in range(0,-50,-1):
 			Background_Audio.set_volume_db(i)
