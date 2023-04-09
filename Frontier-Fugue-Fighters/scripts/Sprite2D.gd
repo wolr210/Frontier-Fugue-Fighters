@@ -4,14 +4,21 @@ var startFrameCount = 0
 var player1InputFrame = 0
 var player1Input = false
 
+var miss_sound = null
+var metronome = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	startFrameCount = Engine.get_frames_drawn()
+	miss_sound = get_node("miss_sound")
+	metronome = get_node("metronome")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var currentFrameCount = Engine.get_frames_drawn()
 	var framesTillNextBeat = (currentFrameCount - startFrameCount) % GlobalVars.FRAMES_PER_BEAT
+	if framesTillNextBeat >= GlobalVars.FRAMES_PER_BEAT - 1:
+		metronome.play()
 	if framesTillNextBeat <= 1 or framesTillNextBeat >= 29:
 		position = Vector2(100,100)
 	else:
@@ -25,6 +32,7 @@ func _process(_delta):
 			print("LATE PERFECT")
 		elif player1AlignedInput <= GlobalVars.FRAMES_PER_BEAT / 2:
 			print("LATE")
+			miss_sound.play()
 		elif player1AlignedInput >= GlobalVars.FRAMES_PER_BEAT - (GlobalVars.TIMING_PERFECT / 2) - 1:
 			print("PERFECT")
 		elif player1AlignedInput >= GlobalVars.FRAMES_PER_BEAT - (GlobalVars.TIMING_PERFECT / 2) - GlobalVars.TIMING_EARLY_PERFECT - 1:
