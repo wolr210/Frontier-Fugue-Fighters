@@ -25,6 +25,8 @@ var metronome = null
 var randForSound
 var black_fade = null
 
+var muslevel = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randForSound = RandomNumberGenerator.new().randi_range(1,3)
@@ -49,6 +51,8 @@ func _ready():
 	player1Effects = get_node("Player1/Player1Effects")
 	player2Model = get_node("Player2/Player2Model")
 	player2Effects = get_node("Player2/Player2Effects")
+	
+	muslevel = get_node("Sounds/MusicLevel")
 	
 	# load correct player 1 models
 	match GlobalVars.PLAYER_1_CHARACTER_SELECT:
@@ -130,7 +134,7 @@ func _process(_delta):
 		
 		# next beat (adjusted for hearing accuracy)
 		if framesTillNextBeat >= GlobalVars.FRAMES_PER_BEAT - 1:
-			metronome.play()
+			muslevel.play()
 			tempoMarkerPulseCounter = 1.4
 			GlobalVars.PLAYER_1_GRABBED_DURATION -= 1
 			GlobalVars.PLAYER_2_GRABBED_DURATION -= 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dssoqagmxsbsf"]
+[gd_scene load_steps=68 format=3 uid="uid://di4q1a2gxikye"]
 
 [ext_resource type="Texture2D" uid="uid://d2hf4ik3rieio" path="res://graphics/background/birbs.png" id="2_wgbli"]
 [ext_resource type="Script" path="res://scripts/fight_script.gd" id="2_wpyqm"]
@@ -11,36 +11,37 @@
 [ext_resource type="Texture2D" uid="uid://dbdky78ag4m7x" path="res://graphics/background/hill f.png" id="9_eg6rn"]
 [ext_resource type="Texture2D" uid="uid://cuoi7cvcq5we2" path="res://graphics/background/sky.png" id="10_bf2lk"]
 [ext_resource type="Shader" path="res://graphics/shaders/pixelate.gdshader" id="11_112qm"]
-[ext_resource type="Texture2D" uid="uid://h4vwh6dddwdm" path="res://graphics/characters/fight sprites/blue idle 1.png" id="12_uyjj5"]
+[ext_resource type="Texture2D" uid="uid://bwjgrsd2kvxbh" path="res://graphics/characters/fight sprites/blue idle 1.png" id="12_uyjj5"]
 [ext_resource type="Shader" path="res://graphics/shaders/pixelate_less.gdshader" id="12_xcncy"]
 [ext_resource type="AudioStream" uid="uid://db7mdwqid123" path="res://sounds/miss/Vin_Scratch1.wav" id="13_2661a"]
-[ext_resource type="Texture2D" uid="uid://cdd7um0tgeggq" path="res://graphics/characters/fight sprites/blue idle 2.png" id="13_jjer6"]
+[ext_resource type="Texture2D" uid="uid://bfqgw5gxh4ser" path="res://graphics/characters/fight sprites/blue idle 2.png" id="13_jjer6"]
 [ext_resource type="AudioStream" uid="uid://cswu0sdiky3gw" path="res://sounds/miss/Vin_Scratch3.wav" id="13_x745m"]
-[ext_resource type="Texture2D" uid="uid://dsihyw5gdfkr" path="res://graphics/characters/fight effects/attack 1.png" id="13_y6yhi"]
-[ext_resource type="Texture2D" uid="uid://ci8nwrx560b3j" path="res://graphics/characters/fight sprites/green idle 1.png" id="14_57wla"]
-[ext_resource type="AudioStream" uid="uid://dtm5r6kkerbd6" path="res://sounds/metronome/Cowbell-1.wav" id="14_i0f8a"]
-[ext_resource type="Texture2D" uid="uid://fdisjy8e0bqp" path="res://graphics/characters/fight effects/attack 2.png" id="14_o2i4l"]
-[ext_resource type="Texture2D" uid="uid://ctw4arit672iy" path="res://graphics/characters/fight sprites/green idle 2.png" id="15_0tfpf"]
-[ext_resource type="Texture2D" uid="uid://b3ds2eykc5chv" path="res://graphics/characters/fight effects/defense 1.png" id="15_ow40u"]
+[ext_resource type="Texture2D" uid="uid://cql3fvxaymcpb" path="res://graphics/characters/fight effects/attack 1.png" id="13_y6yhi"]
+[ext_resource type="Texture2D" uid="uid://c778i8rx4iu0" path="res://graphics/characters/fight sprites/green idle 1.png" id="14_57wla"]
+[ext_resource type="AudioStream" uid="uid://ba3uh5wekb1" path="res://sounds/metronome/Cowbell-1.wav" id="14_i0f8a"]
+[ext_resource type="Texture2D" uid="uid://n6g80dgahxou" path="res://graphics/characters/fight effects/attack 2.png" id="14_o2i4l"]
+[ext_resource type="Texture2D" uid="uid://d3761hf2mdyhh" path="res://graphics/characters/fight sprites/green idle 2.png" id="15_0tfpf"]
+[ext_resource type="Texture2D" uid="uid://d18cibdqwmgyv" path="res://graphics/characters/fight effects/defense 1.png" id="15_ow40u"]
 [ext_resource type="AudioStream" uid="uid://cvgvo1b8grqnt" path="res://sounds/miss/Vin_Scratch2.wav" id="15_si364"]
-[ext_resource type="Texture2D" uid="uid://wobmtsktgxvx" path="res://graphics/characters/fight sprites/red idle 1.png" id="16_5t4li"]
-[ext_resource type="Texture2D" uid="uid://drykr032l82ow" path="res://graphics/characters/fight effects/defense 2.png" id="16_c2q58"]
-[ext_resource type="Texture2D" uid="uid://bfx6uhss23iy7" path="res://graphics/characters/fight sprites/red idle 2.png" id="17_dng7b"]
-[ext_resource type="Texture2D" uid="uid://0jib1u1lqrpo" path="res://graphics/text/ready.png" id="18_4w2uv"]
-[ext_resource type="Texture2D" uid="uid://1wplvi2ldykn" path="res://graphics/characters/fight effects/grab 1.png" id="19_otg25"]
-[ext_resource type="Texture2D" uid="uid://dow0qet5qcj0d" path="res://graphics/text/3.png" id="19_yw85f"]
-[ext_resource type="Texture2D" uid="uid://crxjpr8cjurp7" path="res://graphics/text/2.png" id="20_1d0sl"]
-[ext_resource type="Texture2D" uid="uid://caflawpgaj6l0" path="res://graphics/characters/fight effects/grab 2.png" id="20_vsm8f"]
-[ext_resource type="Texture2D" uid="uid://ckn1bgcoyc0ia" path="res://graphics/text/1.png" id="21_2w6to"]
-[ext_resource type="Texture2D" uid="uid://oyeksbxuvxl1" path="res://graphics/text/go.png" id="22_44dds"]
-[ext_resource type="Texture2D" uid="uid://dqyukjefbgntm" path="res://graphics/characters/fight sprites/red attack.png" id="25_k2ate"]
-[ext_resource type="Texture2D" uid="uid://cb66o3dthfkbn" path="res://graphics/characters/fight sprites/red defense.png" id="26_wu65h"]
-[ext_resource type="Texture2D" uid="uid://b41ybfhp6j7p0" path="res://graphics/characters/fight sprites/red grab.png" id="27_kxghy"]
-[ext_resource type="Texture2D" uid="uid://dxpls5jlv6xcd" path="res://graphics/text/player 1 win.png" id="33_kt1ni"]
-[ext_resource type="Texture2D" uid="uid://k3qri08llbxa" path="res://graphics/text/player 2 win.png" id="34_4b8dv"]
-[ext_resource type="Texture2D" uid="uid://bt5c5p3tlitfr" path="res://graphics/text/how to play.png" id="37_vviko"]
+[ext_resource type="Texture2D" uid="uid://bdpbtm8a8gckb" path="res://graphics/characters/fight sprites/red idle 1.png" id="16_5t4li"]
+[ext_resource type="Texture2D" uid="uid://ca040pmnvt6a3" path="res://graphics/characters/fight effects/defense 2.png" id="16_c2q58"]
+[ext_resource type="Texture2D" uid="uid://41yic73rw2i" path="res://graphics/characters/fight sprites/red idle 2.png" id="17_dng7b"]
+[ext_resource type="Texture2D" uid="uid://dbhxf8rm7h70e" path="res://graphics/text/ready.png" id="18_4w2uv"]
+[ext_resource type="Texture2D" uid="uid://bmk6xd5j2sxbd" path="res://graphics/characters/fight effects/grab 1.png" id="19_otg25"]
+[ext_resource type="Texture2D" uid="uid://bafpitw1gtca0" path="res://graphics/text/3.png" id="19_yw85f"]
+[ext_resource type="Texture2D" uid="uid://cktw8loqpf2nu" path="res://graphics/text/2.png" id="20_1d0sl"]
+[ext_resource type="Texture2D" uid="uid://x44hjtk8dmuu" path="res://graphics/characters/fight effects/grab 2.png" id="20_vsm8f"]
+[ext_resource type="Texture2D" uid="uid://c5sto6pj4bd3c" path="res://graphics/text/1.png" id="21_2w6to"]
+[ext_resource type="Texture2D" uid="uid://bfh2apkido8vj" path="res://graphics/text/go.png" id="22_44dds"]
+[ext_resource type="Texture2D" uid="uid://ddneh5jyycjbm" path="res://graphics/characters/fight sprites/red attack.png" id="25_k2ate"]
+[ext_resource type="Texture2D" uid="uid://3r4n0nj8q017" path="res://graphics/characters/fight sprites/red defense.png" id="26_wu65h"]
+[ext_resource type="Texture2D" uid="uid://c8su5u0tggibg" path="res://graphics/characters/fight sprites/red grab.png" id="27_kxghy"]
+[ext_resource type="Texture2D" uid="uid://cgkrb4lmn3itp" path="res://graphics/text/player 1 win.png" id="33_kt1ni"]
+[ext_resource type="Texture2D" uid="uid://dedc7bmm33flv" path="res://graphics/text/player 2 win.png" id="34_4b8dv"]
+[ext_resource type="Texture2D" uid="uid://uieddqt147wy" path="res://graphics/text/how to play.png" id="37_vviko"]
+[ext_resource type="AudioStream" uid="uid://bkfnho73tseem" path="res://sounds/fight/BASS.mp3" id="39_au0cu"]
 [ext_resource type="Shader" path="res://health_bar.gdshader" id="40_exf7l"]
-[ext_resource type="Texture2D" uid="uid://dqdlnrlp6j0fy" path="res://graphics/cowboy mellow.png" id="40_mgfb4"]
+[ext_resource type="Texture2D" uid="uid://2mv2bkcb81v5" path="res://graphics/cowboy mellow.png" id="40_mgfb4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x3q3r"]
 shader = ExtResource("11_112qm")
@@ -480,6 +481,9 @@ stream = ExtResource("15_si364")
 [node name="miss_sound3" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("13_x745m")
 
+[node name="MusicLevel" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("39_au0cu")
+
 [node name="Instructions" type="CanvasLayer" parent="."]
 layer = 15
 
@@ -521,7 +525,8 @@ polygon = PackedVector2Array(40, 64, 40, 192, 360, 192, 352, 168, 104, 168, 144,
 [node name="HealthBarRight" type="CanvasLayer" parent="UI"]
 layer = 12
 offset = Vector2(1920, 0)
-scale = Vector2(-1, 1)
+rotation = 3.14159
+scale = Vector2(1, -1)
 transform = Transform2D(-1, 0, 0, 1, 1920, 0)
 
 [node name="RightBack" type="Polygon2D" parent="UI/HealthBarRight"]
@@ -535,7 +540,6 @@ polygon = PackedVector2Array(136, 80, 88, 176, 568, 176, 616, 80)
 
 [node name="P1RightBlack" type="Polygon2D" parent="UI/HealthBarRight"]
 position = Vector2(0, 3.63798e-12)
-scale = Vector2(1, 1)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(128, 64, 64, 192, 360, 192, 352, 168, 104, 168, 144, 88, 344, 88, 344, 64)
 
