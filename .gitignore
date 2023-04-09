@@ -24,3 +24,5 @@ Frontier-Fugue-Fighters/.godot/.gdignore
 *.import
 *.cfg
 *.cfg
+*.ctex
+*.md5
