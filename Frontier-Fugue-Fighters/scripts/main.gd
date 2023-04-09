@@ -12,6 +12,8 @@ var red_character_max_x = 1920 / 3;
 var green_character_max_x = 2 * 1920 / 3;
 var blue_character_max_x = 1920;
 
+var transition_sound = null
+
 func _ready():
 	DisplayServer.window_set_size(Vector2(1920, 1080))
 	DisplayServer.window_set_position(Vector2(0,0))
@@ -19,6 +21,7 @@ func _ready():
 	red_character = get_node("choose_red/choose_red")
 	green_character = get_node("choose_green/choose_green")
 	blue_character = get_node("choose_blue/choose_blue")
+	transition_sound = get_node("Transition_Audio_Sel")
 	
 func _process(_delta):
 	var current_mouse_position = get_viewport().get_mouse_position()
@@ -28,14 +31,19 @@ func _process(_delta):
 		red_character.material.shader = pixel_shader
 		green_character.material.shader = grey_pixel_shader
 		blue_character.material.shader = grey_pixel_shader
+		
+		
 	elif current_mouse_position.x < green_character_max_x:
 		red_character.material.shader = grey_pixel_shader
 		green_character.material.shader = pixel_shader
 		blue_character.material.shader = grey_pixel_shader
+		
+		
 	else:
 		red_character.material.shader = grey_pixel_shader
 		green_character.material.shader = grey_pixel_shader
 		blue_character.material.shader = pixel_shader
+	
 	
 func _input(ev):
 	if Input.is_key_pressed(KEY_ESCAPE):
@@ -51,18 +59,24 @@ func _input(ev):
 		if !GlobalVars.PLAYER_1_CHARACTER_CHOSEN:
 			if current_mouse_position.x < red_character_max_x:
 				GlobalVars.PLAYER_1_CHARACTER_SELECT = GlobalVars.CHARACTER_RED
+				transition_sound.play()
 			elif current_mouse_position.x < green_character_max_x:
 				GlobalVars.PLAYER_1_CHARACTER_SELECT = GlobalVars.CHARACTER_GREEN
+				transition_sound.play()
 			else:
 				GlobalVars.PLAYER_1_CHARACTER_SELECT = GlobalVars.CHARACTER_BLUE
+				transition_sound.play()
 			GlobalVars.PLAYER_1_CHARACTER_CHOSEN = true
 			print('player 1 chosen')
 		elif !GlobalVars.PLAYER_2_CHARACTER_CHOSEN:
 			if current_mouse_position.x < red_character_max_x:
 				GlobalVars.PLAYER_2_CHARACTER_SELECT = GlobalVars.CHARACTER_RED
+				transition_sound.play()
 			elif current_mouse_position.x < green_character_max_x:
 				GlobalVars.PLAYER_2_CHARACTER_SELECT = GlobalVars.CHARACTER_GREEN
+				transition_sound.play()
 			else:
 				GlobalVars.PLAYER_2_CHARACTER_SELECT = GlobalVars.CHARACTER_BLUE
+				transition_sound.play()
 			GlobalVars.PLAYER_2_CHARACTER_CHOSEN = true
 			print('player 2 chosen')

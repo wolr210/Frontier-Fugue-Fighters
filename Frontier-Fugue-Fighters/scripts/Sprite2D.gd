@@ -3,15 +3,20 @@ extends Sprite2D
 var startFrameCount = 0
 var player1InputFrame = 0
 var player1Input = false
-
 var miss_sound = null
 var metronome = null
+var randForSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randForSound = RandomNumberGenerator.new().randi_range(1,3)
 	startFrameCount = Engine.get_frames_drawn()
-	miss_sound = get_node("miss_sound")
 	metronome = get_node("metronome")
+	if randForSound == 1:
+		miss_sound = get_node("miss_sound1")
+	elif randForSound == 2:
+		miss_sound = get_node("miss_sound2")
+	else: miss_sound = get_node("miss_sound3")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
