@@ -13,6 +13,7 @@ var green_character_max_x = 2 * 1920 / 3;
 var blue_character_max_x = 1920;
 
 var transition_sound = null
+var black_fade = null
 
 func _ready():
 	DisplayServer.window_set_size(Vector2(1920, 1080))
@@ -27,6 +28,8 @@ func _ready():
 	
 	get_node("selection_tokens/p1_token").visible = false
 	get_node("selection_tokens/p2_token").visible = false
+
+	black_fade = get_node("CanvasLayer/BlackAnimation")
 	
 func _process(_delta):
 	var current_mouse_position = get_viewport().get_mouse_position()
@@ -55,6 +58,8 @@ func _input(ev):
 	elif Input.is_key_pressed(KEY_ENTER) and GlobalVars.PLAYER_1_CHARACTER_CHOSEN and GlobalVars.PLAYER_2_CHARACTER_CHOSEN:
 		print("trying to change")
 		#print(GlobalVars.PLAYER_1_CHARACTER_CHOSEN and GlobalVars.PLAYER_2_CHARACTER_CHOSEN)
+		black_fade.play('Black_In')
+		await get_tree().create_timer(3.0).timeout
 		get_tree().change_scene_to_file("res://fight.tscn")
 		print("changed")
 	elif Input.is_action_just_pressed("click"):
