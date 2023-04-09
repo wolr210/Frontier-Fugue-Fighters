@@ -413,7 +413,7 @@ func countdown():
 	curr_node.hide()
 	
 	get_node("Instructions/Instructions").visible = true
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(10).timeout
 	get_node("Instructions/Instructions").visible = false
 	
 	await get_tree().create_timer(1).timeout
