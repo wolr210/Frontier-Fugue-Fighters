@@ -68,7 +68,7 @@ func _input(ev):
 		
 		for i in range(0,-50,-1):
 			Background_Audio.set_volume_db(i)
-			await get_tree().create_timer(0.05).timeout
+			await get_tree().create_timer(0.02).timeout
 			
 		await get_tree().create_timer(1).timeout
 		

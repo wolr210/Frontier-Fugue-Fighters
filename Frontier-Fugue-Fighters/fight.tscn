@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://di4q1a2gxikye"]
+[gd_scene load_steps=32 format=3 uid="uid://di4q1a2gxikye"]
 
 [ext_resource type="Texture2D" uid="uid://d2hf4ik3rieio" path="res://graphics/background/birbs.png" id="2_wgbli"]
 [ext_resource type="Texture2D" uid="uid://d7use8sm4prc" path="res://graphics/background/cactus b.png" id="3_ckl2r"]
@@ -52,6 +52,42 @@ shader = ExtResource("11_112qm")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sghv2"]
 shader = ExtResource("11_112qm")
+
+[sub_resource type="Animation" id="Animation_6gnw3"]
+resource_name = "Black_Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackFade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s2sps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackFade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kltmk"]
+_data = {
+"Black_Out": SubResource("Animation_6gnw3"),
+"RESET": SubResource("Animation_s2sps")
+}
 
 [node name="Scene" type="Node2D"]
 material = SubResource("ShaderMaterial_x3q3r")
@@ -155,3 +191,18 @@ stream = ExtResource("15_si364")
 
 [node name="miss_sound3" type="AudioStreamPlayer" parent="Player1/Player1CanvasLayer/Player1Sprite"]
 stream = ExtResource("13_x745m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player1/Player1CanvasLayer/Player1Sprite"]
+layer = 10
+
+[node name="BlackFade" type="ColorRect" parent="Player1/Player1CanvasLayer/Player1Sprite/CanvasLayer"]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.12, 27.52)
+color = Color(0, 0, 0, 1)
+
+[node name="BlackAnimation" type="AnimationPlayer" parent="Player1/Player1CanvasLayer/Player1Sprite/CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_kltmk")
+}

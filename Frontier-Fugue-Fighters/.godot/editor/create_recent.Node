@@ -1,6 +1,6 @@
 AnimationPlayer
-ColorRect
 CanvasLayer
+ColorRect
 Sprite2D
 AudioStreamPlayer
 Polygon2D

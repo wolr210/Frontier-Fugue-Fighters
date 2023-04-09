@@ -6,6 +6,7 @@ var player1Input = false
 var miss_sound = null
 var metronome = null
 var randForSound
+var black_fade = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,9 @@ func _ready():
 	elif randForSound == 2:
 		miss_sound = get_node("miss_sound2")
 	else: miss_sound = get_node("miss_sound3")
+	
+	black_fade = get_node("CanvasLayer/BlackAnimation")
+	black_fade.play('Black_Out')
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
