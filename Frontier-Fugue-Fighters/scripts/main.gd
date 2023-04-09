@@ -50,7 +50,7 @@ func _input(ev):
 		get_tree().quit()
 	elif Input.is_key_pressed(KEY_ENTER) and GlobalVars.PLAYER_1_CHARACTER_CHOSEN and GlobalVars.PLAYER_2_CHARACTER_CHOSEN:
 		print("trying to change")
-		print(GlobalVars.PLAYER_1_CHARACTER_CHOSEN and GlobalVars.PLAYER_2_CHARACTER_CHOSEN)
+		#print(GlobalVars.PLAYER_1_CHARACTER_CHOSEN and GlobalVars.PLAYER_2_CHARACTER_CHOSEN)
 		get_tree().change_scene_to_file("res://fight.tscn")
 		print("changed")
 	elif Input.is_action_just_pressed("click"):
@@ -59,24 +59,20 @@ func _input(ev):
 		if !GlobalVars.PLAYER_1_CHARACTER_CHOSEN:
 			if current_mouse_position.x < red_character_max_x:
 				GlobalVars.PLAYER_1_CHARACTER_SELECT = GlobalVars.CHARACTER_RED
-				transition_sound.play()
 			elif current_mouse_position.x < green_character_max_x:
 				GlobalVars.PLAYER_1_CHARACTER_SELECT = GlobalVars.CHARACTER_GREEN
-				transition_sound.play()
 			else:
 				GlobalVars.PLAYER_1_CHARACTER_SELECT = GlobalVars.CHARACTER_BLUE
-				transition_sound.play()
 			GlobalVars.PLAYER_1_CHARACTER_CHOSEN = true
+			transition_sound.play()
 			print('player 1 chosen')
 		elif !GlobalVars.PLAYER_2_CHARACTER_CHOSEN:
 			if current_mouse_position.x < red_character_max_x:
 				GlobalVars.PLAYER_2_CHARACTER_SELECT = GlobalVars.CHARACTER_RED
-				transition_sound.play()
 			elif current_mouse_position.x < green_character_max_x:
 				GlobalVars.PLAYER_2_CHARACTER_SELECT = GlobalVars.CHARACTER_GREEN
-				transition_sound.play()
 			else:
 				GlobalVars.PLAYER_2_CHARACTER_SELECT = GlobalVars.CHARACTER_BLUE
-				transition_sound.play()
 			GlobalVars.PLAYER_2_CHARACTER_CHOSEN = true
+			transition_sound.play()
 			print('player 2 chosen')

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdcyd1roh6aa0"]
+[gd_scene load_steps=17 format=3 uid="uid://fefh12fdljiw"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jgllh"]
 [ext_resource type="Texture2D" uid="uid://p6owly1tqryr" path="res://graphics/characters/full banners/banner red.png" id="1_xwe6l"]
@@ -6,7 +6,7 @@
 [ext_resource type="Shader" path="res://graphics/shaders/pixelate.gdshader" id="2_yf88d"]
 [ext_resource type="Texture2D" uid="uid://b10fhbuqxrdwp" path="res://graphics/characters/full banners/nametag red.png" id="4_4fshj"]
 [ext_resource type="AudioStream" uid="uid://chiq1o6tq3b4j" path="res://sounds/char_select/Char_Select_Backgrounds.mp3" id="6_05xn3"]
-[ext_resource type="AudioStream" uid="uid://be8g0e27hxrah" path="res://sounds/char_select/Char_select.wav" id="7_ggv8l"]
+[ext_resource type="AudioStream" uid="uid://ccq4rtwdiq3bp" path="res://sounds/char_select/Char_select.wav" id="7_ggv8l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4d1h4"]
 shader = ExtResource("2_wxrpa")
