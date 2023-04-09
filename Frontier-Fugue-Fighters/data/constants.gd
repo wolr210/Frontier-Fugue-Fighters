@@ -29,8 +29,8 @@ const MOVE_SCALE_LATE          = 0.25 # when attacker is late, scale move power/
 const CHARACTER_RED = 0
 const CHARACTER_GREEN = 1
 const CHARACTER_BLUE = 2
-var PLAYER_1_CHARACTER_SELECT = 0
-var PLAYER_2_CHARACTER_SELECT = 0
+var PLAYER_1_CHARACTER_SELECT = -1
+var PLAYER_2_CHARACTER_SELECT = -1
 
 # GAMEPLAY FLAGS (can be changed during runtime!)
 var PLAYER_1_CHARACTER_CHOSEN = false
