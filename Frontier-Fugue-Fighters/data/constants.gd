@@ -41,3 +41,4 @@ var PLAYER_1_CHARACTER_CHOSEN = false
 var PLAYER_2_CHARACTER_CHOSEN = false
 var FIGHTING_STARTED = false
 var FIGHTING_ENDED = false
+var PROCESS_FLAG = false
