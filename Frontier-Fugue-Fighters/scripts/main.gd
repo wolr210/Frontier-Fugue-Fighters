@@ -22,6 +22,11 @@ func _ready():
 	green_character = get_node("choose_green/choose_green")
 	blue_character = get_node("choose_blue/choose_blue")
 	transition_sound = get_node("Transition_Audio_Sel")
+	get_node("top_text/select_char").visible = true
+	get_node("top_text/press_enter").visible = false
+	
+	get_node("selection_tokens/p1_token").visible = false
+	get_node("selection_tokens/p2_token").visible = false
 	
 func _process(_delta):
 	var current_mouse_position = get_viewport().get_mouse_position()
@@ -31,19 +36,18 @@ func _process(_delta):
 		red_character.material.shader = pixel_shader
 		green_character.material.shader = grey_pixel_shader
 		blue_character.material.shader = grey_pixel_shader
-		
-		
 	elif current_mouse_position.x < green_character_max_x:
 		red_character.material.shader = grey_pixel_shader
 		green_character.material.shader = pixel_shader
 		blue_character.material.shader = grey_pixel_shader
-		
-		
 	else:
 		red_character.material.shader = grey_pixel_shader
 		green_character.material.shader = grey_pixel_shader
 		blue_character.material.shader = pixel_shader
-	
+		
+	if GlobalVars.PLAYER_1_CHARACTER_CHOSEN and GlobalVars.PLAYER_2_CHARACTER_CHOSEN:
+		get_node("top_text/select_char").visible = false
+		get_node("top_text/press_enter").visible = true
 	
 func _input(ev):
 	if Input.is_key_pressed(KEY_ESCAPE):
@@ -61,18 +65,25 @@ func _input(ev):
 				GlobalVars.PLAYER_1_CHARACTER_SELECT = GlobalVars.CHARACTER_RED
 			elif current_mouse_position.x < green_character_max_x:
 				GlobalVars.PLAYER_1_CHARACTER_SELECT = GlobalVars.CHARACTER_GREEN
+				get_node("selection_tokens/p1_token").position.x += 1920/3;
 			else:
 				GlobalVars.PLAYER_1_CHARACTER_SELECT = GlobalVars.CHARACTER_BLUE
+				get_node("selection_tokens/p1_token").position.x += 2*1920/3;
 			GlobalVars.PLAYER_1_CHARACTER_CHOSEN = true
+			get_node("selection_tokens/p1_token").visible = true
 			transition_sound.play()
 			print('player 1 chosen')
+			
 		elif !GlobalVars.PLAYER_2_CHARACTER_CHOSEN:
 			if current_mouse_position.x < red_character_max_x:
 				GlobalVars.PLAYER_2_CHARACTER_SELECT = GlobalVars.CHARACTER_RED
 			elif current_mouse_position.x < green_character_max_x:
 				GlobalVars.PLAYER_2_CHARACTER_SELECT = GlobalVars.CHARACTER_GREEN
+				get_node("selection_tokens/p2_token").position.x += 1920/3;
 			else:
 				GlobalVars.PLAYER_2_CHARACTER_SELECT = GlobalVars.CHARACTER_BLUE
+				get_node("selection_tokens/p2_token").position.x += 2*1920/3;
 			GlobalVars.PLAYER_2_CHARACTER_CHOSEN = true
+			get_node("selection_tokens/p2_token").visible = true
 			transition_sound.play()
 			print('player 2 chosen')

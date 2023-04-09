@@ -1,30 +1,37 @@
-[gd_scene load_steps=17 format=3 uid="uid://fefh12fdljiw"]
+[gd_scene load_steps=28 format=3 uid="uid://fefh12fdljiw"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jgllh"]
 [ext_resource type="Texture2D" uid="uid://p6owly1tqryr" path="res://graphics/characters/full banners/banner red.png" id="1_xwe6l"]
 [ext_resource type="Shader" path="res://graphics/shaders/greyscale_pixelate.gdshader" id="2_wxrpa"]
-[ext_resource type="Shader" path="res://graphics/shaders/pixelate.gdshader" id="2_yf88d"]
 [ext_resource type="Texture2D" uid="uid://b10fhbuqxrdwp" path="res://graphics/characters/full banners/nametag red.png" id="4_4fshj"]
+[ext_resource type="Texture2D" uid="uid://b1nuu5l3nmmax" path="res://graphics/characters/full banners/nametag green.png" id="6_5aw7i"]
 [ext_resource type="AudioStream" uid="uid://chiq1o6tq3b4j" path="res://sounds/char_select/Char_Select_Backgrounds.mp3" id="6_05xn3"]
 [ext_resource type="AudioStream" uid="uid://ccq4rtwdiq3bp" path="res://sounds/char_select/Char_select.wav" id="7_ggv8l"]
+[ext_resource type="Texture2D" uid="uid://hwkihi4ay0lu" path="res://graphics/characters/full banners/banner blue.png" id="7_jl4oy"]
+[ext_resource type="Texture2D" uid="uid://cyxjd2f2frdbs" path="res://graphics/characters/full banners/nametag blue.png" id="8_qiw6b"]
+[ext_resource type="Texture2D" uid="uid://dal7y4b7vawul" path="res://graphics/characters/choose a character.png" id="11_82aqk"]
+[ext_resource type="Shader" path="res://graphics/shaders/pixelate_text.gdshader" id="11_fduq5"]
+[ext_resource type="Texture2D" uid="uid://c7gpilu0cc4rx" path="res://graphics/characters/press enter to start.png" id="12_l67pc"]
+[ext_resource type="Texture2D" uid="uid://bcag4lhtq6lwa" path="res://graphics/characters/p1.png" id="13_ule7t"]
+[ext_resource type="Texture2D" uid="uid://ct211btush5qh" path="res://graphics/characters/p2.png" id="14_gjbrn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4d1h4"]
 shader = ExtResource("2_wxrpa")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1rf1l"]
-shader = ExtResource("2_yf88d")
+shader = ExtResource("11_fduq5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e868k"]
 shader = ExtResource("2_wxrpa")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2s5g"]
-shader = ExtResource("2_yf88d")
+shader = ExtResource("11_fduq5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jk77h"]
 shader = ExtResource("2_wxrpa")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3mmlt"]
-shader = ExtResource("2_yf88d")
+shader = ExtResource("11_fduq5")
 
 [sub_resource type="Animation" id="Animation_rwd4q"]
 resource_name = "RESET"
@@ -62,6 +69,18 @@ _data = {
 "Start_Fade": SubResource("Animation_ptnho")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfiay"]
+shader = ExtResource("11_fduq5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rqvox"]
+shader = ExtResource("11_fduq5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ku082"]
+shader = ExtResource("11_fduq5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnhsl"]
+shader = ExtResource("11_fduq5")
+
 [node name="choose" type="Node2D"]
 script = ExtResource("1_jgllh")
 
@@ -86,19 +105,19 @@ offset = Vector2(960, 540)
 [node name="green_banner" type="Sprite2D" parent="choose_green/choose_green"]
 material = SubResource("ShaderMaterial_n2s5g")
 position = Vector2(960, 540)
-texture = ExtResource("4_4fshj")
+texture = ExtResource("6_5aw7i")
 
 [node name="choose_blue" type="CanvasLayer" parent="."]
 
 [node name="choose_blue" type="Sprite2D" parent="choose_blue"]
 material = SubResource("ShaderMaterial_jk77h")
-texture = ExtResource("1_xwe6l")
+texture = ExtResource("7_jl4oy")
 offset = Vector2(1600, 540)
 
 [node name="blue_banner" type="Sprite2D" parent="choose_blue/choose_blue"]
 material = SubResource("ShaderMaterial_3mmlt")
 position = Vector2(1600, 540)
-texture = ExtResource("4_4fshj")
+texture = ExtResource("8_qiw6b")
 
 [node name="Select_Char_Back_Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_05xn3")
@@ -120,3 +139,27 @@ libraries = {
 
 [node name="Transition_Audio_Sel" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ggv8l")
+
+[node name="top_text" type="CanvasLayer" parent="."]
+
+[node name="select_char" type="Sprite2D" parent="top_text"]
+material = SubResource("ShaderMaterial_hfiay")
+position = Vector2(960, 540)
+texture = ExtResource("11_82aqk")
+
+[node name="press_enter" type="Sprite2D" parent="top_text"]
+material = SubResource("ShaderMaterial_rqvox")
+position = Vector2(990, 540)
+texture = ExtResource("12_l67pc")
+
+[node name="selection_tokens" type="CanvasLayer" parent="."]
+
+[node name="p1_token" type="Sprite2D" parent="selection_tokens"]
+material = SubResource("ShaderMaterial_ku082")
+position = Vector2(960, 420)
+texture = ExtResource("13_ule7t")
+
+[node name="p2_token" type="Sprite2D" parent="selection_tokens"]
+material = SubResource("ShaderMaterial_gnhsl")
+position = Vector2(960, 540)
+texture = ExtResource("14_gjbrn")

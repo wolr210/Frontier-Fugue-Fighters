@@ -1,11 +1,11 @@
+CanvasLayer
+Sprite2D
 AudioStreamPlayer
 AnimationPlayer
 ColorRect
-CanvasLayer
 Polygon2D
 Area2D
 AnimatedSprite2D
-Sprite2D
 Node2D
 Control
 CanvasGroup
