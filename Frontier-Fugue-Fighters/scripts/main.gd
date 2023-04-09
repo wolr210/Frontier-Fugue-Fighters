@@ -8,14 +8,14 @@ var red_character = null
 var green_character = null
 var blue_character = null
 
-var red_character_max_x = 1920 / 3;
-var green_character_max_x = 2 * 1920 / 3;
-var blue_character_max_x = 1920;
+var red_character_max_x = 1920 / 3
+var green_character_max_x = 2 * 1920 / 3
+var blue_character_max_x = 1920
 
 # ALL audios for the start
 var transition_sound = null
 var char_ready = null
-var Background_Audio;
+var Background_Audio
 var black_fade = null
 
 func _ready():

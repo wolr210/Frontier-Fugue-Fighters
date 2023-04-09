@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://fk3u7utqddn0"]
+[gd_scene load_steps=33 format=3 uid="uid://6rbo3q342gor"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jgllh"]
 [ext_resource type="Texture2D" uid="uid://p6owly1tqryr" path="res://graphics/characters/full banners/banner red.png" id="1_xwe6l"]
 [ext_resource type="Shader" path="res://graphics/shaders/greyscale_pixelate.gdshader" id="2_wxrpa"]
 [ext_resource type="Texture2D" uid="uid://b10fhbuqxrdwp" path="res://graphics/characters/full banners/nametag red.png" id="4_4fshj"]
+[ext_resource type="Shader" path="res://graphics/shaders/pixelate_less.gdshader" id="4_dmnbx"]
 [ext_resource type="Texture2D" uid="uid://bib875y0t7lhd" path="res://graphics/characters/full banners/nametag green.png" id="6_5aw7i"]
 [ext_resource type="AudioStream" uid="uid://chiq1o6tq3b4j" path="res://sounds/char_select/Char_Select_Backgrounds.mp3" id="6_05xn3"]
 [ext_resource type="Texture2D" uid="uid://bmg0twqibigb3" path="res://graphics/characters/full banners/banner green.png" id="6_me8i8"]
@@ -11,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://brxkoyvkrb3bu" path="res://graphics/characters/full banners/banner blue.png" id="7_jl4oy"]
 [ext_resource type="Texture2D" uid="uid://cjksvrmc881u1" path="res://graphics/characters/full banners/nametag blue.png" id="8_qiw6b"]
 [ext_resource type="Texture2D" uid="uid://cvyqmexew1jox" path="res://graphics/text/choose a character.png" id="11_82aqk"]
-[ext_resource type="Shader" path="res://graphics/shaders/pixelate_text.gdshader" id="11_fduq5"]
 [ext_resource type="Texture2D" uid="uid://bfphbr7q8t32i" path="res://graphics/text/press enter to start.png" id="12_l67pc"]
 [ext_resource type="Texture2D" uid="uid://ijnjsmy5gd2q" path="res://graphics/text/p1.png" id="13_ule7t"]
 [ext_resource type="Texture2D" uid="uid://broycnpygu6yo" path="res://graphics/text/p2.png" id="14_gjbrn"]
@@ -21,19 +21,19 @@
 shader = ExtResource("2_wxrpa")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1rf1l"]
-shader = ExtResource("11_fduq5")
+shader = ExtResource("4_dmnbx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e868k"]
 shader = ExtResource("2_wxrpa")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2s5g"]
-shader = ExtResource("11_fduq5")
+shader = ExtResource("4_dmnbx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jk77h"]
 shader = ExtResource("2_wxrpa")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3mmlt"]
-shader = ExtResource("11_fduq5")
+shader = ExtResource("4_dmnbx")
 
 [sub_resource type="Animation" id="Animation_rwd4q"]
 resource_name = "RESET"
@@ -108,16 +108,16 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfiay"]
-shader = ExtResource("11_fduq5")
+shader = ExtResource("4_dmnbx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rqvox"]
-shader = ExtResource("11_fduq5")
+shader = ExtResource("4_dmnbx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ku082"]
-shader = ExtResource("11_fduq5")
+shader = ExtResource("4_dmnbx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gnhsl"]
-shader = ExtResource("11_fduq5")
+shader = ExtResource("4_dmnbx")
 
 [node name="choose" type="Node2D"]
 script = ExtResource("1_jgllh")

@@ -1,12 +1,12 @@
 Sprite2D
+AnimatedSprite2D
+CanvasLayer
+Node2D
 Polygon2D
 AudioStreamPlayer
 AnimationPlayer
-CanvasLayer
 ColorRect
 Area2D
-AnimatedSprite2D
-Node2D
 Control
 CanvasGroup
 ShaderGlobalsOverride
