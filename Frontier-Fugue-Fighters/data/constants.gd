@@ -23,6 +23,10 @@ const ATTACK_POWER_MAX  = 20 # attack damage when on beat
 const BLOCK_PERCENT_MAX = 1.0 # percent of damage blocked when on beat (0.0 = no block, 1.0 = full block)
 const GRAB_DURATION_MAX = 4 # number of beats that the grab is held for
 
+const ATTACK_ENDLAG = 0 # number of beats you can't do any other move after attacking
+const BLOCK_ENDLAG = 0 # number of beats you can't do any other move after blocking
+const GRAB_ENDLAG = 1 # number of beats you can't do any other move after grabbing
+
 const MOVE_SCALE_EARLY         = 0.0 # when attacker is early, scale move power/percent/duration by this much
 const MOVE_SCALE_EARLY_PERFECT = 0.5 # when attacker is early perfect, scale move power/percent/duration by this much
 const MOVE_SCALE_PERFECT       = 1 # when attacker is perfect, scale move power/percent/duration by this much
@@ -42,6 +46,7 @@ var PLAYER_2_CHARACTER_CHOSEN = false
 var FIGHTING_STARTED = false
 var FIGHTING_ENDED = false
 var PROCESS_FLAG = false
+var HIDE_INSTRUCTIONS = false
 
 # GAMEPLAY STATS (can be changed during runtime!)
 var PLAYER_1_HEALTH = 500

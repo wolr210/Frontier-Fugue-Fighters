@@ -2,6 +2,12 @@ extends Node2D
 
 var startFrameCount = 0
 
+var tempoMarker = null
+var tempoMarkerPulseCounter = 0
+
+var healthBarLeft = null
+var healthBarRight = null
+
 var player1Model = null
 var player1Effects = null
 var player1InputFrame = 0
@@ -32,6 +38,12 @@ func _ready():
 	
 	black_fade = get_node("FadeTransition/BlackAnimation")
 	black_fade.play('Black_Out')
+	
+	tempoMarker = get_node("UI/TempoMarker/TempoMarker")
+	tempoMarker.visible = false
+	
+	healthBarLeft = get_node("UI/HealthBarLeft/HealthLeft")
+	healthBarRight = get_node("UI/HealthBarRight/HealthRight")
 	
 	player1Model = get_node("Player1/Player1Model")
 	player1Effects = get_node("Player1/Player1Effects")
@@ -87,12 +99,16 @@ func _ready():
 	player2Effects.get_node("Player2Grab").play()
 	
 	countdown()
+	
+	tempoMarker.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if GlobalVars.PROCESS_FLAG == true:
 		var currentFrameCount = Engine.get_frames_drawn()
 		var framesTillNextBeat = (currentFrameCount - startFrameCount) % GlobalVars.FRAMES_PER_BEAT
+		
+		tempoMarkerPulseCounter = max(1, tempoMarkerPulseCounter - 0.04)
 		
 		# clear animations if it's the middle of the beat
 		if framesTillNextBeat >= GlobalVars.FRAMES_PER_BEAT - 1 and framesTillNextBeat <= GlobalVars.FRAMES_PER_BEAT + 1:
@@ -115,6 +131,7 @@ func _process(_delta):
 		# next beat (adjusted for hearing accuracy)
 		if framesTillNextBeat >= GlobalVars.FRAMES_PER_BEAT - 1:
 			metronome.play()
+			tempoMarkerPulseCounter = 1.4
 			GlobalVars.PLAYER_1_GRABBED_DURATION -= 1
 			GlobalVars.PLAYER_2_GRABBED_DURATION -= 1
 			GlobalVars.PLAYER_1_COOLDOWN_DURATION -= 1
@@ -123,6 +140,8 @@ func _process(_delta):
 			print(GlobalVars.PLAYER_1_HEALTH)
 			print("Player 2 Health:")
 			print(GlobalVars.PLAYER_2_HEALTH)
+			
+		tempoMarker.scale = Vector2(tempoMarkerPulseCounter, tempoMarkerPulseCounter)
 			
 		# determine player 1 timing
 		if GlobalVars.PLAYER_1_GRABBED_DURATION >= 0 or GlobalVars.PLAYER_1_COOLDOWN_DURATION >= 0:
@@ -179,7 +198,7 @@ func _process(_delta):
 						player2Effects.get_node("Player2Block").visible = false
 						player2Effects.get_node("Player2Grab").visible = false
 						GlobalVars.PLAYER_1_HEALTH -= GlobalVars.ATTACK_POWER_MAX * player2MoveScale
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.ATTACK_ENDLAG
 					GlobalVars.MOVE_TYPE_BLOCK: # p1 none, p2 block --> nothing
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = false
@@ -188,7 +207,7 @@ func _process(_delta):
 						player2Effects.get_node("Player2Attack").visible = false
 						player2Effects.get_node("Player2Block").visible = true
 						player2Effects.get_node("Player2Grab").visible = false
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.BLOCK_ENDLAG
 					GlobalVars.MOVE_TYPE_GRAB: # p1 none, p2 grab --> p1 grabbed if not already grabbed within last 8 beats
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = false
@@ -199,7 +218,7 @@ func _process(_delta):
 						player2Effects.get_node("Player2Grab").visible = true
 						if GlobalVars.PLAYER_1_GRABBED_DURATION < -3:
 							GlobalVars.PLAYER_1_GRABBED_DURATION = GlobalVars.GRAB_DURATION_MAX * player2MoveScale
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.GRAB_ENDLAG
 						
 			GlobalVars.MOVE_TYPE_ATTACK:
 				player1Model.get_node("Player1Idle").visible = false
@@ -212,7 +231,7 @@ func _process(_delta):
 				match player2Move:
 					GlobalVars.MOVE_TYPE_NONE: # p1 attack, p2 none --> p2 damaged
 						GlobalVars.PLAYER_2_HEALTH -= GlobalVars.ATTACK_POWER_MAX * player1MoveScale
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.ATTACK_ENDLAG
 					GlobalVars.MOVE_TYPE_ATTACK: # p1 attack, p2 attack --> nothing (clash)
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = true
@@ -221,8 +240,8 @@ func _process(_delta):
 						player2Effects.get_node("Player2Attack").visible = true
 						player2Effects.get_node("Player2Block").visible = false
 						player2Effects.get_node("Player2Grab").visible = false
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 1
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.ATTACK_ENDLAG
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.ATTACK_ENDLAG
 					GlobalVars.MOVE_TYPE_BLOCK: # p1 attack, p2 block --> p2 block damage based on timing
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = false
@@ -233,8 +252,8 @@ func _process(_delta):
 						player2Effects.get_node("Player2Grab").visible = false
 						var damage_calc = GlobalVars.ATTACK_POWER_MAX * (player1MoveScale - GlobalVars.BLOCK_PERCENT_MAX * player2MoveScale)
 						GlobalVars.PLAYER_2_HEALTH -= max(0, damage_calc)
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 1
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.ATTACK_ENDLAG
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.BLOCK_ENDLAG
 					GlobalVars.MOVE_TYPE_GRAB: # p1 attack, p2 grab --> p2 damaged
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = false
@@ -244,8 +263,8 @@ func _process(_delta):
 						player2Effects.get_node("Player2Block").visible = false
 						player2Effects.get_node("Player2Grab").visible = true
 						GlobalVars.PLAYER_2_HEALTH -= GlobalVars.ATTACK_POWER_MAX * player1MoveScale
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 1
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 2
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.ATTACK_ENDLAG
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.GRAB_ENDLAG
 						
 			GlobalVars.MOVE_TYPE_BLOCK:
 				player1Model.get_node("Player1Idle").visible = false
@@ -257,7 +276,7 @@ func _process(_delta):
 				player1Effects.get_node("Player1Grab").visible = false
 				match player2Move:
 					GlobalVars.MOVE_TYPE_NONE: # p1 block, p2 none --> nothing
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.BLOCK_ENDLAG
 					GlobalVars.MOVE_TYPE_ATTACK: # p1 block, p2 attack --> p1 block damage based on timing
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = true
@@ -268,8 +287,8 @@ func _process(_delta):
 						player2Effects.get_node("Player2Grab").visible = false
 						var damage_calc = GlobalVars.ATTACK_POWER_MAX * (player2MoveScale - GlobalVars.BLOCK_PERCENT_MAX * player1MoveScale)
 						GlobalVars.PLAYER_1_HEALTH -= max(0, damage_calc)
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 1
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.BLOCK_ENDLAG
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.ATTACK_ENDLAG
 					GlobalVars.MOVE_TYPE_BLOCK: # p1 block, p2 block --> nothing
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = false
@@ -278,8 +297,8 @@ func _process(_delta):
 						player2Effects.get_node("Player2Attack").visible = false
 						player2Effects.get_node("Player2Block").visible = true
 						player2Effects.get_node("Player2Grab").visible = false
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 1
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.BLOCK_ENDLAG
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.BLOCK_ENDLAG
 					GlobalVars.MOVE_TYPE_GRAB: # p1 block, p2 grab --> p1 grabbed if not already grabbed within last 8 beats
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = false
@@ -290,7 +309,7 @@ func _process(_delta):
 						player2Effects.get_node("Player2Grab").visible = true
 						if GlobalVars.PLAYER_1_GRABBED_DURATION < -3:
 							GlobalVars.PLAYER_1_GRABBED_DURATION = GlobalVars.GRAB_DURATION_MAX * player2MoveScale
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.GRAB_ENDLAG
 						
 			GlobalVars.MOVE_TYPE_GRAB:
 				player1Model.get_node("Player1Idle").visible = false
@@ -304,7 +323,7 @@ func _process(_delta):
 					GlobalVars.MOVE_TYPE_NONE: # p1 grab, p2 none --> p2 grabbed if not already grabbed within last 8 beats
 						if GlobalVars.PLAYER_2_GRABBED_DURATION < -3:
 							GlobalVars.PLAYER_2_GRABBED_DURATION = GlobalVars.GRAB_DURATION_MAX * player1MoveScale
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 2
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.GRAB_ENDLAG
 					GlobalVars.MOVE_TYPE_ATTACK: # p1 grab, p2 attack --> p1 damaged
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = true
@@ -314,8 +333,8 @@ func _process(_delta):
 						player2Effects.get_node("Player2Block").visible = false
 						player2Effects.get_node("Player2Grab").visible = false
 						GlobalVars.PLAYER_1_HEALTH -= GlobalVars.ATTACK_POWER_MAX * player2MoveScale
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 2
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.GRAB_ENDLAG
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.ATTACK_ENDLAG
 					GlobalVars.MOVE_TYPE_BLOCK: # p1 grab, p2 block --> p2 grabbed if not already grabbed within last 8 beats
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = false
@@ -326,7 +345,7 @@ func _process(_delta):
 						player2Effects.get_node("Player2Grab").visible = false
 						if GlobalVars.PLAYER_2_GRABBED_DURATION < -3:
 							GlobalVars.PLAYER_2_GRABBED_DURATION = GlobalVars.GRAB_DURATION_MAX * player1MoveScale
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 1
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.GRAB_ENDLAG
 					GlobalVars.MOVE_TYPE_GRAB: # p1 grab, p2 grab --> nothing (clash)
 						player2Model.get_node("Player2Idle").visible = false
 						player2Model.get_node("Player2Attack").visible = false
@@ -335,18 +354,27 @@ func _process(_delta):
 						player2Effects.get_node("Player2Attack").visible = false
 						player2Effects.get_node("Player2Block").visible = false
 						player2Effects.get_node("Player2Grab").visible = true
-						GlobalVars.PLAYER_1_COOLDOWN_DURATION = 2
-						GlobalVars.PLAYER_2_COOLDOWN_DURATION = 2
+						GlobalVars.PLAYER_1_COOLDOWN_DURATION = GlobalVars.GRAB_ENDLAG
+						GlobalVars.PLAYER_2_COOLDOWN_DURATION = GlobalVars.GRAB_ENDLAG
 						
 		player1Move = GlobalVars.MOVE_TYPE_NONE
 		player2Move = GlobalVars.MOVE_TYPE_NONE
 		
+		healthBarLeft.scale = Vector2(GlobalVars.PLAYER_1_HEALTH / 500.0, 1)
+		healthBarLeft.position = Vector2((500.0 - GlobalVars.PLAYER_1_HEALTH) / 10, 0)
+		healthBarRight.position = Vector2((500.0 - GlobalVars.PLAYER_2_HEALTH) / 10, 0)
+		healthBarRight.scale = Vector2(GlobalVars.PLAYER_2_HEALTH / 500.0, 1)		
+		
 		# checks endgame states
 		if GlobalVars.PLAYER_1_HEALTH <= 0:
-			print("Player 2 wins!")
+			#print("Player 2 wins!")
+			get_node("Countdown/p2_wins").show()
+			await get_tree().create_timer(3).timeout
 			get_tree().quit()
 		elif GlobalVars.PLAYER_2_HEALTH <= 0:
-			print("Player 1 wins!")
+			#print("Player 1 wins!")
+			get_node("Countdown/p1_wins").show()
+			await get_tree().create_timer(3).timeout
 			get_tree().quit() 
 			
 		
@@ -380,7 +408,13 @@ func countdown():
 	get_node("Countdown/two").hide()
 	get_node("Countdown/one").hide()
 	get_node("Countdown/go").hide()
+	get_node("Countdown/p1_wins").hide()
+	get_node("Countdown/p2_wins").hide()
 	curr_node.hide()
+	
+	get_node("Instructions/Instructions").visible = true
+	await get_tree().create_timer(1).timeout
+	get_node("Instructions/Instructions").visible = false
 	
 	await get_tree().create_timer(1).timeout
 	metronome.play()
