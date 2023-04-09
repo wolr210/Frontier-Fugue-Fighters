@@ -24,3 +24,16 @@ const MOVE_SCALE_EARLY_PERFECT = 0.5 # when attacker is early perfect, scale mov
 const MOVE_SCALE_PERFECT       = 1 # when attacker is perfect, scale move power/percent/duration by this much
 const MOVE_SCALE_LATE_PERFECT  = 0.5 # when attacker is late perfect, scale move power/percent/duration by this much
 const MOVE_SCALE_LATE          = 0.25 # when attacker is late, scale move power/percent/duration by this much
+
+# CHARACTER CHOICES (can be changed during runtime!)
+const CHARACTER_RED = 0
+const CHARACTER_GREEN = 1
+const CHARACTER_BLUE = 2
+var PLAYER_1_CHARACTER_SELECT = 0
+var PLAYER_2_CHARACTER_SELECT = 0
+
+# GAMEPLAY FLAGS (can be changed during runtime!)
+var PLAYER_1_CHARACTER_CHOSEN = false
+var PLAYER_2_CHARACTER_CHOSEN = false
+var FIGHTING_STARTED = false
+var FIGHTING_ENDED = false
